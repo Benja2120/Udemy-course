@@ -15,6 +15,6 @@ for(i=0;i<numOfDrums;i++){
   });
 }
 
-document.addEventListener("keydown", function(event){
+document.addEventListener("keydown", function(){
   alert("hey!!");
   });
