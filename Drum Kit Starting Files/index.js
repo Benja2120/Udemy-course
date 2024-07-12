@@ -51,7 +51,7 @@ document.addEventListener("keydown", function(event){
       }
   }
 
-  Function buttonAnimation(key) {
+  function buttonAnimation(key) {
     var activateButton = document.querySelector("." + key);
     activateButton.classList.add("pressed");
 
