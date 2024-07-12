@@ -1,5 +1,5 @@
 var numOfDrums = document.querySelectorAll(".drum").length;
-//detecta el boton que ha sido presionado
+/*detecta el boton que ha sido presionado*/
 for( i = 0 ; i < numOfDrums ; i++ ) {
   document.querySelectorAll(".drum")[i].addEventListener("click",function(){
     var key = this.innerHTML;
@@ -8,12 +8,12 @@ for( i = 0 ; i < numOfDrums ; i++ ) {
 
   };
 
-//detecta la tecla presionada
+/*detecta la tecla presionada*/
 document.addEventListener("keydown", function(event){
   makeSound(event.key);
   });
 
-//emite el sonido que corresponde
+/*emite el sonido que corresponde*/
   function makeSound(key){
     switch(key){
       case "w":
