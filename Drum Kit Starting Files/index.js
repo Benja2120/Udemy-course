@@ -4,6 +4,7 @@ for( i = 0 ; i < numOfDrums ; i++ ) {
   document.querySelectorAll(".drum")[i].addEventListener("click",function(){
     var buttonInnerHTML = this.innerHTML;
     makeSound(buttonInnerHTML);
+    buttonAnimation(buttonInnerHTML);
     });
 
   };
@@ -11,6 +12,7 @@ for( i = 0 ; i < numOfDrums ; i++ ) {
 /*detecta la tecla presionada*/
 document.addEventListener("keydown", function(event){
   makeSound(event.key);
+  buttonAnimation(event.key);
   });
 
 /*emite el sonido que corresponde*/
@@ -47,4 +49,13 @@ document.addEventListener("keydown", function(event){
       default:
 
       }
+  }
+
+  Funciton buttonAnimation(key) {
+    var activateButton = document.querySelector("." + key);
+    activateButton.classList.add("pressed");
+
+    setTimeout(function() {
+      activateButton.classList.remove("pressed");
+    }, 100);
   }
