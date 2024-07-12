@@ -15,4 +15,6 @@ for(i=0;i<numOfDrums;i++){
   });
 }
 
-document.addEventListener("keypress", alert("hey!!"));
+document.addEventListener("keypress", function(){
+  alert("hey!!");
+  });
