@@ -2,8 +2,8 @@ var numOfDrums = document.querySelectorAll(".drum").length;
 /*detecta el boton que ha sido presionado*/
 for( i = 0 ; i < numOfDrums ; i++ ) {
   document.querySelectorAll(".drum")[i].addEventListener("click",function(){
-    var key = this.innerHTML;
-    makeSound(key);
+    var buttonInnerHTML = this.innerHTML;
+    makeSound(buttonInnerHTML);
     }
 
   };
