@@ -15,4 +15,4 @@ for(i=0;i<numOfDrums;i++){
   });
 }
 
-document.addEventListener("keypressdown", alert("hey!!"));
+document.addEventListener("keypress", alert("hey!!"));
