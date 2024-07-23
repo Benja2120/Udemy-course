@@ -1,8 +1,10 @@
+/*detecta la tecla presionada*/
 $(document).keydown(function(event){
     if($("#level.title").innerHTML.length>10){
         level(1);
     }});
 
+/*cambia el numero de level*/
 function level(n){
     $("#level-title").text("Level " + n);
 }
@@ -18,6 +20,7 @@ for( i = 0; i<numOfButton; i++){
         animacion(btnId);
     })};
 
+/*asigna sonido*/
 function sonido(id){
     switch (id) {
         case "green":
@@ -41,6 +44,7 @@ function sonido(id){
         break;
     }};
 
+/*asigna animacion*/
     function animacion(id){
         $("#"+id).classList.add("pressed");
         setTimeout(function{
