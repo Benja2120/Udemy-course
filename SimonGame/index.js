@@ -1,25 +1,4 @@
-/*detecta la tecla presionada*/
-$(document).keydown(function(event){
-    if($("#level.title").innerHTML.length>10){
-        level(1);
-    }});
-
-/*cambia el numero de level*/
-function level(n){
-    $("#level-title").text("Level " + n);
-}
-
-/*cuenta los botones*/
-var numOfButton = $(".btn").length;
-
-/*Asigna accion a botones*/
-for( i = 0; i<numOfButton; i++){
-    $(".btn")[i].addEventListener("click", function{
-        var btnId = $(".btn")[i].id;
-        sonido(btnId);
-        animacion(btnId);
-    })};
-
+/*Funciones auxiliares*/
 /*asigna sonido*/
 function sonido(id){
     switch (id) {
@@ -39,15 +18,66 @@ function sonido(id){
             var aud4 = new Audio("sounds2/blue.mp3");
             aud4.play();
             break;
-    
         default:
-        break;
-    }};
+        break}};
 
 /*asigna animacion*/
     function animacion(id){
-        $("#"+id).classList.add("pressed");
-        setTimeout(function{
-        $("#"+id).classList.remove("pressed");
-        },100);
-    }
+        $("#"+id).addClass("pressed");
+        setTimeout(function(){
+        $("#"+id).removeClass("pressed");
+        },100)};
+
+/*Funcion random*/
+function randomColor(){
+    var a = Math.floor(Math.random()*4 + 1);
+    switch(a){
+        case "1":
+            return "green";
+            break;
+        case "2":
+            return "red";
+            break;
+        case "3":
+            return "yellow";
+            break;
+        case "4":
+            return "blue";
+            break;
+        default:
+        break}};
+
+/* Funciones Principales*/
+/*detecta la tecla presionada*/
+$(document).keydown(function(event){
+    if($("#level-title").html().length>10){
+        level(1);
+        iniciaJuego();
+    }});
+
+/*Reinicia valores*/
+function iniciaJuego(){
+    var arrayX = [];
+    var arrayY = [];
+    alert(randomColor());
+    arrayY.push(randomColor());
+    reproducir(arrayY)};
+
+/*Funcion reproducir*/
+function reproducir(array){
+    for(i = 0; i<array.length; i++){
+        sonido(array[i]);
+        animacion(array[i])}};
+
+/*cambia el numero de level*/
+function level(n){
+    $("#level-title").html("Level " + n)};
+
+/*Asigna accion a botones*/
+for( i = 0; i<$(".btn").length; i++){
+    $(".btn")[i].addEventListener("click", function(){
+        var btnId = this.id;
+        sonido(btnId);
+        animacion(btnId);
+    })};
+
